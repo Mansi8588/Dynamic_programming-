@@ -1,4 +1,7 @@
 public class fibonacci {
+
+  // Memorization code
+  
   public static int fib(int n,int f[]) {
   if(n==1||n==0){
   return n;
@@ -9,17 +12,32 @@ public class fibonacci {
    f[n]= fib(n-1,f)+fib(n-2,f);
     return f[n];
   }
+
+  public static int fibTabul(int n) {
+    int dp[]=new int[n+1];
+    dp[0]=0;
+    dp[1]=1;
+    for(int i=2;i<=n;i++){
+      dp[i]=dp[i-1]+dp[i-2];
+    }
+    return dp[n];
+  }
+
+
+  // Tabluation code
+  
     public static void main(String[] arg) {
       int n=5;
       int f[]=new int[n+1];    // f[]=0,0,1,2,3,5
     System.out.println(fib(n,f));
-    System.out.println();
+    
     for(int i=0;i<n+1;i++){
        System.out.println(fib(i,f)); 
     }
       for(int i=0;i<n+1;i++){
        System.out.println(f[i]); 
     }
+      System.out.println(fibTabul(n));
     }
   }
       
